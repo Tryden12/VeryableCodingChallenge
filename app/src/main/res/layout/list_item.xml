@@ -59,10 +59,10 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_width="@dimen/_12sdp"
-                android:layout_height="@dimen/_12sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/bank_icon_black"
+                android:src="@drawable/arrow_right_icon"
                 app:tint="@color/dark_grey" />
 
         </LinearLayout>
