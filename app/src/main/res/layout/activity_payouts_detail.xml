@@ -69,7 +69,7 @@
             android:fontFamily="@font/roboto_regular"
             android:layout_gravity="center_horizontal"
             android:text="@string/bank_name"
-            android:textColor="@color/dark_grey"
+            android:textColor="@color/dim_grey"
             android:textSize="@dimen/_14sdp"/>
 
         <androidx.appcompat.widget.AppCompatButton
