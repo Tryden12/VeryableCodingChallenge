@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/bank_icon_black.xml" value="0.24" />
+        <entry key="app/src/main/res/drawable/button_bg.xml" value="0.191" />
         <entry key="app/src/main/res/layout/activity_payouts_detail.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_payouts_details.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_payouts_list.xml" value="0.37604166666666666" />

@@ -31,8 +31,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/accounts"
-                    android:textSize="20sp"
-                    android:textAllCaps="true"/>
+                    android:textSize="@dimen/_16sdp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/dark_grey"/>
 
             </RelativeLayout>
         </com.google.android.material.appbar.AppBarLayout>
