@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        Scalable SDP dimensions are used throughout this app.
+        Check gradle for dependency.
+
+        Why use SDP?
+        Instead of using dimensions file and setting different dimensions
+        for different screen sizes, we can utilize the SDP dependency
+        which will scale the size unit with any screen size.
+
+        Check this link here for more info:
+        https://github.com/intuit/sdp
+
+     -->
+
+
+</resources>
