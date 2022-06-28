@@ -12,9 +12,6 @@
         <activity
             android:name=".view.PayoutsDetailActivity"
             android:exported="false" />
-        <activity
-            android:name=".view.PayoutsDetailsActivity"
-            android:exported="false" />
         <activity android:name=".view.PayoutsListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,10 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.VeryableCodingChallenge" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+    <style name="Theme.VeryableCodingChallenge" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/dark_grey</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- Custom Toolbar -->
+    <style name="GlobalToolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="titleTextAppearance">@style/GlobalToolbar_Text</item>
+    </style>
+
+    <!-- Custom Toolbar Text -->
+    <style name="GlobalToolbar_Text" parent="@style/TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 </resources>
