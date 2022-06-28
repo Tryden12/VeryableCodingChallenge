@@ -30,7 +30,7 @@
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Details"
+                    android:text="@string/details"
                     android:textSize="@dimen/_16sdp"
                     android:textAllCaps="true"
                     android:textColor="@color/dark_grey"/>
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
             android:layout_gravity="center_horizontal"
-            android:text="Account Name"
+            android:text="@string/account_name"
             android:textColor="@color/dark_grey"
             android:textSize="@dimen/_16sdp"/>
 
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
             android:layout_gravity="center_horizontal"
-            android:text="Bank Name"
+            android:text="@string/bank_name"
             android:textColor="@color/dark_grey"
             android:textSize="@dimen/_14sdp"/>
 
@@ -76,10 +76,10 @@
             android:id="@+id/done_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background=""
+            android:background="@drawable/button_bg"
             android:elevation="@dimen/_10sdp"
             android:fontFamily="@font/roboto_bold"
-            android:text="Done"
+            android:text="@string/done"
             android:textColor="@color/white"
             android:layout_marginStart="@dimen/_26sdp"
             android:layout_marginTop="@dimen/_300sdp"
