@@ -9,6 +9,9 @@
     <!-- Payouts List Activity -->
     <string name="bank_accounts">Bank Accounts</string>
     <string name="cards">Cards</string>
+    <string name="ach_same_day">Bank Account: ACH - Same Day</string>
+    <string name="card_instant">Card: Instant</string>
+
 
     <!-- Payouts Detail Activity -->
     <string name="account_name">Account Name</string>
