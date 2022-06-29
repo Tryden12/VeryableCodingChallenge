@@ -30,7 +30,8 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(accountList?.get(position))
+
     }
 
     override fun getItemCount(): Int {
@@ -57,10 +58,11 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
             when (data?.accountType ?: "") {
                 BANK -> {
                     view.item_icon.setImageResource(R.drawable.bank_icon_black)
-                    //view.item_desc_delivery_textview.text =
+                    view.item_desc_delivery_textview.text = "Bank Account: ACH - Same Day"
                 }
                 CARD -> {
                     view.item_icon.setImageResource(R.drawable.card_icon_black)
+                    view.item_desc_delivery_textview.text = "Card: Instant"
                 }
             }
         }
