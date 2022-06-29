@@ -9,7 +9,7 @@ import retrofit2.Response
 
 class PayoutsListViewModel : ViewModel() {
 
-    // Live data for the list from api
+    // Live data for the list from Api
     var liveDataList: MutableLiveData<MutableList<Account>> = MutableLiveData()
 
     // Live data for each item
