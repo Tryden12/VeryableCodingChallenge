@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.veryable.android.R
 import com.veryable.android.data.Account
+import com.veryable.android.utils.Constants.BANK
+import com.veryable.android.utils.Constants.CARD
 import kotlinx.android.synthetic.main.list_item.view.*
 
 class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
@@ -53,7 +55,13 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
                 itemDesc.text = data.description ?: ""
             }
             when (data?.accountType ?: "") {
-
+                BANK -> {
+                    view.item_icon.setImageResource(R.drawable.bank_icon_black)
+                    //view.item_desc_delivery_textview.text =
+                }
+                CARD -> {
+                    view.item_icon.setImageResource(R.drawable.card_icon_black)
+                }
             }
         }
 
