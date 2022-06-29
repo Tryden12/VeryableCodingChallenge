@@ -1,4 +1,7 @@
 package com.veryable.android.viewmodel
 
-class PayoutsListViewModel {
+import androidx.lifecycle.ViewModel
+
+class PayoutsListViewModel : ViewModel() {
+
 }
