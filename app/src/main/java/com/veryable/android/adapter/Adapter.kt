@@ -52,6 +52,9 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
                 itemTitle.text = data.accountName ?: ""
                 itemDesc.text = data.description ?: ""
             }
+            when (data?.accountType ?: "") {
+
+            }
         }
 
 
