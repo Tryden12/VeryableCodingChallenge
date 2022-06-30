@@ -35,8 +35,8 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        if (accountList == null) return 0
-        else return accountList?.size!!
+        return if (accountList == null) 0
+        else accountList?.size!!
     }
 
 
