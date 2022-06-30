@@ -1,5 +1,7 @@
 package com.veryable.android.adapter
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +12,7 @@ import com.veryable.android.R
 import com.veryable.android.data.Account
 import com.veryable.android.utils.Constants.BANK
 import com.veryable.android.utils.Constants.CARD
+import com.veryable.android.view.PayoutsDetailActivity
 import kotlinx.android.synthetic.main.list_item.view.*
 import org.w3c.dom.Text
 
@@ -46,6 +49,14 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
         RecyclerView.ViewHolder(view),
         View.OnClickListener {
 
+        init {
+            view.setOnClickListener(this)
+        }
+
+        override fun onClick(view: View?) {
+            // TODO
+        }
+
         fun bind(data : Account?) {
             val itemTitle = view.item_title_textview
             val itemDesc = view.item_desc_textview
@@ -55,13 +66,18 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
             if (data != null) {
                 itemTitle.text = data.accountName
                 itemDesc.text = data.description
-            }
-            if (data != null) {
+
                 if (data.accountType.equals(CARD)) {
                     accountImage.setImageResource(R.drawable.bank_icon_black)
                     itemDeliveryDesc.text = "Bank Account: ACH - Same Day"
+                } else {
+                    accountImage.setImageResource(R.drawable.card_icon_black)
+                    itemDeliveryDesc.text = "Card: Instant"
                 }
             }
+
+            Log.d("DEBUG_ACCOUNT", "$itemTitle, $itemDesc")
+
 /*
             when (data?.accountType ?: "") {
                 BANK -> {
@@ -77,14 +93,6 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
  */
         }
 
-
-        init {
-            view.setOnClickListener(this)
-        }
-
-        override fun onClick(v: View?) {
-            TODO("Not yet implemented")
-        }
 
     }
 }
