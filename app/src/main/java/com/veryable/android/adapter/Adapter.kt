@@ -24,7 +24,7 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): Adapter.ItemViewHolder {
+    ): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
         return ItemViewHolder(view)
     }
@@ -45,12 +45,9 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
         RecyclerView.ViewHolder(view),
         View.OnClickListener {
 
-        val accountImage: ImageView    = view.item_icon
-        val itemTitle: TextView        = view.item_title_textview
-        val itemDesc: TextView         = view.item_desc_textview
-        val itemDescDelivery: TextView = view.item_desc_delivery_textview
-
         fun bind(data : Account?) {
+            val itemTitle: TextView = view.item_title_textview
+            val itemDesc: TextView = view.item_desc_textview
             if (data != null) {
                 itemTitle.text = data.accountName ?: ""
                 itemDesc.text = data.description ?: ""
