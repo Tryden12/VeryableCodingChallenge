@@ -50,7 +50,7 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
         View.OnClickListener {
 
         init {
-            view.setOnClickListener(this)
+            view.findViewById<View>(R.id.item_linear_layout).setOnClickListener(this)
         }
 
         override fun onClick(view: View?) {
@@ -58,16 +58,16 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
         }
 
         fun bind(data : Account?) {
-            val itemTitle = view.item_title_textview
-            val itemDesc = view.item_desc_textview
-            val itemDeliveryDesc = view.item_desc_delivery_textview
-            val accountImage = view.item_icon
+            val itemTitle = view.findViewById<TextView>(R.id.item_title_textview)
+            val itemDesc = view.findViewById<TextView>(R.id.item_desc_textview)
+            val itemDeliveryDesc = view.findViewById<TextView>(R.id.item_desc_delivery_textview)
+            val accountImage = view.findViewById<ImageView>(R.id.item_icon)
 
             if (data != null) {
                 itemTitle.text = data.accountName
                 itemDesc.text = data.description
 
-                if (data.accountType.equals(CARD)) {
+                if (data.accountType == BANK) {
                     accountImage.setImageResource(R.drawable.bank_icon_black)
                     itemDeliveryDesc.text = "Bank Account: ACH - Same Day"
                 } else {
