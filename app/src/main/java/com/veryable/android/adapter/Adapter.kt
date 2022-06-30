@@ -53,8 +53,14 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
             val accountImage = view.item_icon
 
             if (data != null) {
-                itemTitle.text = data.accountName ?: ""
-                itemDesc.text = data.description ?: ""
+                itemTitle.text = data.accountName
+                itemDesc.text = data.description
+            }
+            if (data != null) {
+                if (data.accountType.equals(CARD)) {
+                    accountImage.setImageResource(R.drawable.bank_icon_black)
+                    itemDeliveryDesc.text = "Bank Account: ACH - Same Day"
+                }
             }
 /*
             when (data?.accountType ?: "") {

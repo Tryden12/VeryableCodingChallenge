@@ -11,6 +11,7 @@
     <string name="cards">Cards</string>
     <string name="ach_same_day">Bank Account: ACH - Same Day</string>
     <string name="card_instant">Card: Instant</string>
+    <string name="delivery">Delivery</string>
 
 
     <!-- Payouts Detail Activity -->

@@ -16,7 +16,7 @@ import com.veryable.android.viewmodel.PayoutsListViewModel
 
 class PayoutsListActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityPayoutsListBinding
+    private lateinit var binding: ActivityPayoutsListBinding
     private lateinit var bankAdapter: Adapter
     private lateinit var cardAdapter: Adapter
 
