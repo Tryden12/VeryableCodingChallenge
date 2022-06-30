@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.veryable.android.data.Account
 import com.veryable.android.retrofit.RetroInstance.apiService
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
 class PayoutsListViewModel : ViewModel() {
@@ -28,7 +29,7 @@ class PayoutsListViewModel : ViewModel() {
     // Api call for list data
     fun makeApiCall() {
         val call = apiService.getData()
-        call.enqueue(object : retrofit2.Callback<MutableList<Account>> {
+        call.enqueue(object : Callback<MutableList<Account>> {
             override fun onResponse(
                 call: Call<MutableList<Account>>,
                 response: Response<MutableList<Account>>,
