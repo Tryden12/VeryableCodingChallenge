@@ -47,16 +47,16 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
         View.OnClickListener {
 
         fun bind(data : Account?) {
-            val itemTitle: TextView = view.item_title_textview
-            val itemDesc: TextView = view.item_desc_textview
-            val itemDeliveryDesc: TextView = view.item_desc_delivery_textview
-            val accountImage: ImageView = view.item_icon
+            val itemTitle = view.item_title_textview
+            val itemDesc = view.item_desc_textview
+            val itemDeliveryDesc = view.item_desc_delivery_textview
+            val accountImage = view.item_icon
 
             if (data != null) {
                 itemTitle.text = data.accountName ?: ""
                 itemDesc.text = data.description ?: ""
             }
-
+/*
             when (data?.accountType ?: "") {
                 BANK -> {
                     accountImage.setImageResource(R.drawable.bank_icon_black)
@@ -67,6 +67,8 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
                     itemDeliveryDesc.text = "Card: Instant"
                 }
             }
+
+ */
         }
 
 

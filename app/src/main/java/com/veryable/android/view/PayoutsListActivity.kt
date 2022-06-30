@@ -51,9 +51,11 @@ class PayoutsListActivity : AppCompatActivity() {
         val viewModel: PayoutsListViewModel = ViewModelProvider(this).get(PayoutsListViewModel::class.java)
         viewModel.getLiveDataObserver().observe(this@PayoutsListActivity, Observer {
             if (it != null) {
-                bankAdapter.setAccountList(it.filter { it1 -> it1.accountType == BANK })
+                bankAdapter.setAccountList(it)
+                //bankAdapter.setAccountList(it.filter { it1 -> it1.accountType == BANK })
                 bankAdapter.notifyDataSetChanged()
-                cardAdapter.setAccountList(it.filter { it1 -> it1.accountType == CARD })
+                cardAdapter.setAccountList(it)
+               // cardAdapter.setAccountList(it.filter { it1 -> it1.accountType == CARD })
                 cardAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(this, "Error retrieving data", Toast.LENGTH_SHORT).show()
