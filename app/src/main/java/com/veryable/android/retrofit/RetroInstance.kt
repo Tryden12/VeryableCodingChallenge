@@ -22,7 +22,7 @@ object RetroInstance {
 
     // Create Moshi instance
     private val moshi = Moshi.Builder()
-        .add(KotlinJsonAdapterFactory())
+        .addLast(KotlinJsonAdapterFactory())
         .build()!!
 
     // Http Client
