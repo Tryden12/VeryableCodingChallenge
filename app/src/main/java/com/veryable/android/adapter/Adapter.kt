@@ -11,6 +11,7 @@ import com.veryable.android.data.Account
 import com.veryable.android.utils.Constants.BANK
 import com.veryable.android.utils.Constants.CARD
 import kotlinx.android.synthetic.main.list_item.view.*
+import org.w3c.dom.Text
 
 class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
@@ -41,25 +42,29 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
 
     /************ Item View Holder Inner Class ******************/
-    inner class ItemViewHolder(val view: View) :
+    class ItemViewHolder(val view: View) :
         RecyclerView.ViewHolder(view),
         View.OnClickListener {
 
         fun bind(data : Account?) {
             val itemTitle: TextView = view.item_title_textview
             val itemDesc: TextView = view.item_desc_textview
+            val itemDeliveryDesc: TextView = view.item_desc_delivery_textview
+            val accountImage: ImageView = view.item_icon
+
             if (data != null) {
                 itemTitle.text = data.accountName ?: ""
                 itemDesc.text = data.description ?: ""
             }
+
             when (data?.accountType ?: "") {
                 BANK -> {
-                    view.item_icon.setImageResource(R.drawable.bank_icon_black)
-                    view.item_desc_delivery_textview.text = "Bank Account: ACH - Same Day"
+                    accountImage.setImageResource(R.drawable.bank_icon_black)
+                    itemDeliveryDesc.text = "Bank Account: ACH - Same Day"
                 }
                 CARD -> {
-                    view.item_icon.setImageResource(R.drawable.card_icon_black)
-                    view.item_desc_delivery_textview.text = "Card: Instant"
+                    accountImage.setImageResource(R.drawable.card_icon_black)
+                    itemDeliveryDesc.text = "Card: Instant"
                 }
             }
         }
