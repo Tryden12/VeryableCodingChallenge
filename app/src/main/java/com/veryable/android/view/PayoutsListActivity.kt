@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.veryable.android.R
 import com.veryable.android.adapter.Adapter
 import com.veryable.android.databinding.ActivityPayoutsListBinding
+import com.veryable.android.utils.Constants.BANK
 import com.veryable.android.viewmodel.PayoutsListViewModel
+import kotlinx.android.synthetic.main.activity_payouts_detail.*
 
 class PayoutsListActivity : AppCompatActivity() {
 
@@ -44,13 +46,13 @@ class PayoutsListActivity : AppCompatActivity() {
         val viewModel: PayoutsListViewModel = PayoutsListViewModel()
         viewModel.getLiveDataObserver().observe(this@PayoutsListActivity, Observer {
             if (it != null) {
-                bankAdapter.setAccountList(it)
+                bankAdapter.setAccountList(it.filter { it1 -> it1.accountType == BANK })
                 bankAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(this, "Error retrieving data", Toast.LENGTH_SHORT).show()
             }
         })
-        //viewModel.makeApiCall()
+        viewModel.makeApiCall()
     }
 
     }

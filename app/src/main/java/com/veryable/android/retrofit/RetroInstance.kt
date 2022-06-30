@@ -10,7 +10,7 @@ object RetroInstance {
 
     // Base Url
     private const val BASE_URL: String =
-        "https://veryable-public-assets.s3.us-east-2.amazonaws.com/veryable.json"
+        "https://veryable-public-assets.s3.us-east-2.amazonaws.com/veryable.json/"
 
     // Create Moshi instance
     private val moshi = Moshi.Builder()

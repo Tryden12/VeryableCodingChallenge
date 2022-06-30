@@ -7,6 +7,6 @@ import retrofit2.http.GET
 interface ApiService {
 
     @GET("veryable.json")
-    suspend fun getData(): retrofit2.Call<MutableList<Account>>
+    fun getData(): retrofit2.Call<MutableList<Account>>
 
 }

@@ -26,7 +26,7 @@ class PayoutsListViewModel : ViewModel() {
     }
 
     // Api call for list data
-    suspend fun makeApiCall() {
+    fun makeApiCall() {
         val call = apiService.getData()
         call.enqueue(object : retrofit2.Callback<MutableList<Account>> {
             override fun onResponse(
