@@ -1,5 +1,6 @@
 package com.veryable.android.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -13,6 +14,7 @@ import com.veryable.android.adapter.Adapter
 import com.veryable.android.databinding.ActivityPayoutsListBinding
 import com.veryable.android.utils.Constants.BANK
 import com.veryable.android.utils.Constants.CARD
+import com.veryable.android.utils.Constants.ITEM_DATA
 import com.veryable.android.viewmodel.PayoutsListViewModel
 
 class PayoutsListActivity : AppCompatActivity() {
@@ -67,7 +69,7 @@ class PayoutsListActivity : AppCompatActivity() {
                 bankAdapter.setAccountList(it.filter { it1 -> it1.accountType == BANK })
                 bankAdapter.notifyDataSetChanged()
                 //cardAdapter.setAccountList(it)
-               cardAdapter.setAccountList(it.filter { it1 -> it1.accountType == CARD })
+                cardAdapter.setAccountList(it.filter { it1 -> it1.accountType == CARD })
                 cardAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(this, "Error retrieving data", Toast.LENGTH_SHORT).show()

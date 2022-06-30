@@ -1,5 +1,6 @@
 package com.veryable.android.adapter
 
+import android.app.Instrumentation
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.veryable.android.R
 import com.veryable.android.data.Account
@@ -14,6 +16,7 @@ import com.veryable.android.utils.Constants.BANK
 import com.veryable.android.utils.Constants.CARD
 import com.veryable.android.view.PayoutsDetailActivity
 import kotlinx.android.synthetic.main.list_item.view.*
+import kotlinx.coroutines.withContext
 import org.w3c.dom.Text
 
 class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
@@ -22,6 +25,10 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
     fun setAccountList(accountList: List<Account>?) {
         this.accountList = accountList
+    }
+
+    fun getAccountList(): List<Account>? {
+        return accountList
     }
 
 
@@ -35,7 +42,6 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(accountList?.get(position))
-
     }
 
     override fun getItemCount(): Int {
@@ -45,23 +51,28 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
 
     /************ Item View Holder Inner Class ******************/
-    class ItemViewHolder(val view: View) :
+    inner class ItemViewHolder(val view: View) :
         RecyclerView.ViewHolder(view),
         View.OnClickListener {
+
+        val itemTitle = view.findViewById<TextView>(R.id.item_title_textview)
+        val itemDesc = view.findViewById<TextView>(R.id.item_desc_textview)
+        val itemDeliveryDesc = view.findViewById<TextView>(R.id.item_desc_delivery_textview)
+        val accountImage = view.findViewById<ImageView>(R.id.item_icon)
 
         init {
             view.findViewById<View>(R.id.item_linear_layout).setOnClickListener(this)
         }
 
         override fun onClick(view: View?) {
-            // TODO
+            if (view != null) {
+                val intent = Intent(view.context, PayoutsDetailActivity::class.java)
+                view.context.startActivity(intent)
+                val account = Adapter().getAccountList()?.get(adapterPosition)
+            }
         }
 
         fun bind(data : Account?) {
-            val itemTitle = view.findViewById<TextView>(R.id.item_title_textview)
-            val itemDesc = view.findViewById<TextView>(R.id.item_desc_textview)
-            val itemDeliveryDesc = view.findViewById<TextView>(R.id.item_desc_delivery_textview)
-            val accountImage = view.findViewById<ImageView>(R.id.item_icon)
 
             if (data != null) {
                 itemTitle.text = data.accountName
@@ -78,19 +89,6 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
             Log.d("DEBUG_ACCOUNT", "$itemTitle, $itemDesc")
 
-/*
-            when (data?.accountType ?: "") {
-                BANK -> {
-                    accountImage.setImageResource(R.drawable.bank_icon_black)
-                    itemDeliveryDesc.text = "Bank Account: ACH - Same Day"
-                }
-                CARD -> {
-                    accountImage.setImageResource(R.drawable.card_icon_black)
-                    itemDeliveryDesc.text = "Card: Instant"
-                }
-            }
-
- */
         }
 
 
