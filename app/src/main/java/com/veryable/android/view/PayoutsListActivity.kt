@@ -35,34 +35,6 @@ class PayoutsListActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView(){
-        /*
-        val layoutManager = LinearLayoutManager(this)
-        binding.bankListRecyclerview.layoutManager = layoutManager
-
-        // Add divider
-        val divider = DividerItemDecoration(
-            applicationContext, layoutManager.orientation
-        )
-        binding.bankListRecyclerview.addItemDecoration(divider)
-
-        // Bind adapter to recycler view
-        bankAdapter = Adapter()
-        binding.bankListRecyclerview.adapter = bankAdapter
-
-        val layoutManager2 = LinearLayoutManager(this)
-        binding.cardListRecyclerview.layoutManager = layoutManager2
-
-        // Add divider
-        val divider2 = DividerItemDecoration(
-            applicationContext, layoutManager2.orientation
-        )
-        binding.cardListRecyclerview.addItemDecoration(divider)
-
-        // Bind adapter to recycler view
-        cardAdapter = Adapter()
-        binding.cardListRecyclerview.adapter = cardAdapter
-
-       */
         binding.bankListRecyclerview.apply {
             layoutManager = LinearLayoutManager(this@PayoutsListActivity)
             bankAdapter = Adapter()
@@ -86,8 +58,6 @@ class PayoutsListActivity : AppCompatActivity() {
             )
             addItemDecoration(divider)
         }
-
-
     }
 
     private fun initViewModel() {
