@@ -14,6 +14,7 @@ import com.veryable.android.R
 import com.veryable.android.data.Account
 import com.veryable.android.utils.Constants.BANK
 import com.veryable.android.utils.Constants.CARD
+import com.veryable.android.utils.Constants.ITEM_DATA
 import com.veryable.android.view.PayoutsDetailActivity
 import kotlinx.android.synthetic.main.list_item.view.*
 import kotlinx.coroutines.withContext
@@ -42,6 +43,16 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(accountList?.get(position))
+        holder.view.findViewById<View>(R.id.item_linear_layout).setOnClickListener {
+            val account = accountList?.get(holder.adapterPosition)
+
+            // Send data to next activity
+            val intent = Intent(holder.view.context, PayoutsDetailActivity::class.java)
+            intent.putExtra(ITEM_DATA, account?.accountName)
+            intent.putExtra(ITEM_DATA, account?.description)
+            holder.view.context.startActivity(intent)
+
+        }
     }
 
     override fun getItemCount(): Int {
@@ -86,12 +97,14 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
         }
 
         override fun onClick(view: View?) {
+            /*
             if (view != null) {
                 val intent = Intent(view.context, PayoutsDetailActivity::class.java)
                 view.context.startActivity(intent)
 
                 val account = Adapter().getAccountList()?.get(adapterPosition)
             }
+             */
         }
 
 
