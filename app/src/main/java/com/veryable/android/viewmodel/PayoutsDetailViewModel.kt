@@ -18,4 +18,5 @@ class PayoutsDetailViewModel : ViewModel() {
     fun setItemData(account : Account?) {
         liveDataList.value = account
     }
+
 }
