@@ -43,16 +43,18 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(accountList?.get(position))
-        holder.view.findViewById<View>(R.id.item_linear_layout).setOnClickListener {
-            val account = accountList?.get(holder.adapterPosition)
 
+        /*
+        holder.view.findViewById<View>(R.id.item_linear_layout).setOnClickListener {
+
+            val account = accountList?.get(position)?.accountName
             // Send data to next activity
             val intent = Intent(holder.view.context, PayoutsDetailActivity::class.java)
-            intent.putExtra(ITEM_DATA, account?.accountName)
-            intent.putExtra(ITEM_DATA, account?.description)
+            //intent.putExtra(ITEM_DATA, account)
+            //intent.putExtra(ITEM_DATA, account?.description)
             holder.view.context.startActivity(intent)
-
         }
+         */
     }
 
     override fun getItemCount(): Int {
@@ -88,6 +90,7 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
                 }
             }
 
+
             //Log.d("DEBUG_ACCOUNT", "$itemTitle, $itemDesc")
 
         }
@@ -100,9 +103,13 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
             /*
             if (view != null) {
                 val intent = Intent(view.context, PayoutsDetailActivity::class.java)
+
+                val accountName = accountList?.get(adapterPosition)?.accountName
+                intent.putExtra(ITEM_DATA, accountName)
+
                 view.context.startActivity(intent)
 
-                val account = Adapter().getAccountList()?.get(adapterPosition)
+                //val account = Adapter().getAccountList()?.get(adapterPosition)
             }
              */
         }

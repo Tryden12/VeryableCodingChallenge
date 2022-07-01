@@ -22,7 +22,7 @@ class PayoutsDetailActivity : AppCompatActivity() {
 
     private fun getIntentData() {
         val intent = intent
-        val accountName: String = intent.getStringExtra(Constants.ITEM_DATA).toString()
+        val accountName = intent.getStringExtra(Constants.ITEM_DATA).toString()
         val accountNameTextView = findViewById<TextView>(R.id.item_title_textview)
         accountNameTextView.text = accountName
     }
