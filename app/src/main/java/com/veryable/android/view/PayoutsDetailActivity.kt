@@ -18,6 +18,7 @@ class PayoutsDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_payouts_detail)
 
+        initView()
         getIntentData()
     }
 
@@ -34,5 +35,16 @@ class PayoutsDetailActivity : AppCompatActivity() {
             binding.bankIcon.setImageResource(R.drawable.bank_icon_black)
         }
         Log.d("DEBUG_INTENT", "$accountName, $accountDesc")
+    }
+
+    private fun initView() {
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+    }
+    // finish activity on back arrow clicked
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
     }
 }
