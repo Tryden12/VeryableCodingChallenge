@@ -1,8 +1,10 @@
 package com.veryable.android.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.veryable.android.R
@@ -10,7 +12,7 @@ import com.veryable.android.databinding.ActivityPayoutsDetailBinding
 import com.veryable.android.databinding.ActivityPayoutsListBinding
 import com.veryable.android.utils.Constants
 
-class PayoutsDetailActivity : AppCompatActivity() {
+class PayoutsDetailActivity : AppCompatActivity(),View.OnClickListener {
 
     private lateinit var binding: ActivityPayoutsDetailBinding
 
@@ -20,6 +22,7 @@ class PayoutsDetailActivity : AppCompatActivity() {
 
         initView()
         getIntentData()
+        binding.doneButton.setOnClickListener(this)
     }
 
     private fun getIntentData() {
@@ -41,10 +44,18 @@ class PayoutsDetailActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
+        binding.toolbar.setNavigationOnClickListener {
+            val intent = Intent(applicationContext, PayoutsListActivity::class.java)
+            startActivity(intent)
+        }
     }
-    // finish activity on back arrow clicked
-    override fun onSupportNavigateUp(): Boolean {
-        finish()
-        return super.onSupportNavigateUp()
+
+    override fun onClick(view: View?) {
+        when (view?.id) {
+            R.id.done_button -> {
+                val intent = Intent(applicationContext, PayoutsListActivity::class.java)
+                startActivity(intent)
+            }
+        }
     }
 }
