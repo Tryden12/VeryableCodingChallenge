@@ -55,23 +55,13 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
         RecyclerView.ViewHolder(view),
         View.OnClickListener {
 
-        val itemTitle = view.findViewById<TextView>(R.id.item_title_textview)
-        val itemDesc = view.findViewById<TextView>(R.id.item_desc_textview)
-        val itemDeliveryDesc = view.findViewById<TextView>(R.id.item_desc_delivery_textview)
-        val accountImage = view.findViewById<ImageView>(R.id.item_icon)
+        // Create variables for items in list_item layout
+        private val itemTitle: TextView = view.findViewById(R.id.item_title_textview)
+        private val itemDesc: TextView = view.findViewById(R.id.item_desc_textview)
+        private val itemDeliveryDesc: TextView = view.findViewById(R.id.item_desc_delivery_textview)
+        private val accountImage: ImageView = view.findViewById(R.id.item_icon)
 
-        init {
-            view.findViewById<View>(R.id.item_linear_layout).setOnClickListener(this)
-        }
-
-        override fun onClick(view: View?) {
-            if (view != null) {
-                val intent = Intent(view.context, PayoutsDetailActivity::class.java)
-                view.context.startActivity(intent)
-                val account = Adapter().getAccountList()?.get(adapterPosition)
-            }
-        }
-
+        // Bind data to the variables
         fun bind(data : Account?) {
 
             if (data != null) {
@@ -89,6 +79,19 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
             Log.d("DEBUG_ACCOUNT", "$itemTitle, $itemDesc")
 
+        }
+
+        init {
+            view.findViewById<View>(R.id.item_linear_layout).setOnClickListener(this)
+        }
+
+        override fun onClick(view: View?) {
+            if (view != null) {
+                val intent = Intent(view.context, PayoutsDetailActivity::class.java)
+                view.context.startActivity(intent)
+
+                val account = Adapter().getAccountList()?.get(adapterPosition)
+            }
         }
 
 
