@@ -48,24 +48,25 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(accountList?.get(position))
+       /*
         holder.itemView.setOnClickListener {
             accountClickListener?.accountItemClick(
                 accountList?.get(holder.adapterPosition),
                 holder.adapterPosition
             )
+
         }
+        */
 
-        /*
         holder.view.findViewById<View>(R.id.item_linear_layout).setOnClickListener {
-
-            val account = accountList?.get(position)?.accountName
+            val accountName = accountList?.get(position)?.accountName
+            val accountDesc = accountList?.get(position)?.description
             // Send data to next activity
             val intent = Intent(holder.view.context, PayoutsDetailActivity::class.java)
-            //intent.putExtra(ITEM_DATA, account)
-            //intent.putExtra(ITEM_DATA, account?.description)
+            intent.putExtra("accountName", accountName)
+            intent.putExtra("accountDesc", accountDesc)
             holder.view.context.startActivity(intent)
         }
-         */
     }
 
     override fun getItemCount(): Int {
@@ -84,6 +85,7 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
         private val itemDesc: TextView = view.findViewById(R.id.item_desc_textview)
         private val itemDeliveryDesc: TextView = view.findViewById(R.id.item_desc_delivery_textview)
         private val accountImage: ImageView = view.findViewById(R.id.item_icon)
+        private val layout = view.findViewById<View>(R.id.item_linear_layout)
 
         // Bind data to the variables
         fun bind(data : Account?) {

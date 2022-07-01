@@ -77,6 +77,7 @@ class PayoutsListActivity : AppCompatActivity() {
             }
         })
 
+        /*
         // Set the click listener for bank accounts
         bankAdapter.setAccountClickListener(object : AccountClickListener {
             override fun accountItemClick(
@@ -96,6 +97,8 @@ class PayoutsListActivity : AppCompatActivity() {
                 startActivity(intent)
 
         }
+
+         */
 
         viewModel.makeApiCall()
     }

@@ -23,9 +23,10 @@ class PayoutsDetailActivity : AppCompatActivity() {
 
     private fun getIntentData() {
         val intent = intent
-        val accountName = intent.getStringExtra("t").toString()
-        val accountNameTextView = findViewById<TextView>(R.id.item_title_textview)
+        val accountName = intent.getStringExtra("accountName").toString()
+        val accountDesc = intent.getStringExtra("accountDesc").toString()
         binding.accountNameTextview.text = accountName
-        Log.d("DEBUG_INTENT", "$accountName")
+        binding.bankNameTextview.text = accountDesc
+        Log.d("DEBUG_INTENT", "$accountName, $accountDesc")
     }
 }
