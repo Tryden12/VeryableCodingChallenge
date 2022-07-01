@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.veryable.android.R
 import com.veryable.android.data.Account
+import com.veryable.android.listeners.AccountClickListener
 import com.veryable.android.utils.Constants.BANK
 import com.veryable.android.utils.Constants.CARD
 import com.veryable.android.utils.Constants.ITEM_DATA
@@ -23,6 +24,7 @@ import org.w3c.dom.Text
 class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
     private var accountList: List<Account>? = null
+    private var accountClickListener: AccountClickListener? = null
 
     fun setAccountList(accountList: List<Account>?) {
         this.accountList = accountList
@@ -32,6 +34,9 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
         return accountList
     }
 
+    fun setAccountClickListener(accountClickListener: AccountClickListener) {
+        this.accountClickListener = accountClickListener
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -43,6 +48,12 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(accountList?.get(position))
+        holder.itemView.setOnClickListener {
+            accountClickListener?.accountItemClick(
+                accountList?.get(holder.adapterPosition),
+                holder.adapterPosition
+            )
+        }
 
         /*
         holder.view.findViewById<View>(R.id.item_linear_layout).setOnClickListener {
@@ -100,18 +111,7 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
         }
 
         override fun onClick(view: View?) {
-            /*
-            if (view != null) {
-                val intent = Intent(view.context, PayoutsDetailActivity::class.java)
 
-                val accountName = accountList?.get(adapterPosition)?.accountName
-                intent.putExtra(ITEM_DATA, accountName)
-
-                view.context.startActivity(intent)
-
-                //val account = Adapter().getAccountList()?.get(adapterPosition)
-            }
-             */
         }
 
 
