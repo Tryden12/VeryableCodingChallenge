@@ -23,6 +23,7 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:navigationIcon="@drawable/back_arrow_icon"
                     android:theme="@style/GlobalToolbar">
                 </com.google.android.material.appbar.MaterialToolbar>
 
