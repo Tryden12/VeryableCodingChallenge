@@ -9,9 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.veryable.android.R
 import com.veryable.android.data.Account
-import com.veryable.android.listeners.AccountClickListener
 import com.veryable.android.utils.Constants.BANK
-import com.veryable.android.utils.Constants.CARD
 import com.veryable.android.view.PayoutsDetailActivity
 
 class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {

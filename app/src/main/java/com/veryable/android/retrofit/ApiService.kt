@@ -8,5 +8,4 @@ interface ApiService {
 
     @GET("veryable.json")
     fun getData(): Call<MutableList<Account>>
-
 }

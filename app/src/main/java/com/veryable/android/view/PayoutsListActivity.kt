@@ -1,7 +1,5 @@
 package com.veryable.android.view
 
-import android.accounts.Account
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -31,10 +29,7 @@ class PayoutsListActivity : AppCompatActivity() {
         initViewModel()
     }
 
-    private fun initView() {
-        setSupportActionBar(binding.toolbar)
-    }
-
+    // Setup RecyclerViews
     private fun initRecyclerView(){
         binding.bankListRecyclerview.apply {
             layoutManager = LinearLayoutManager(this@PayoutsListActivity)
@@ -61,10 +56,12 @@ class PayoutsListActivity : AppCompatActivity() {
         }
     }
 
+    // Setup viewModel
     private fun initViewModel() {
         val viewModel: PayoutsListViewModel = ViewModelProvider(this).get(PayoutsListViewModel::class.java)
         viewModel.getLiveDataObserver().observe(this@PayoutsListActivity, Observer {
 
+            // Set account lists and filter between adapters
             if (it != null) {
                 bankAdapter.setAccountList(it.filter { account -> account.accountType == BANK })
                 bankAdapter.notifyDataSetChanged()
@@ -74,30 +71,6 @@ class PayoutsListActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error retrieving data", Toast.LENGTH_SHORT).show()
             }
         })
-
-        /*
-        // Set the click listener for bank accounts
-        bankAdapter.setAccountClickListener(object : AccountClickListener {
-            override fun accountItemClick(
-                account: com.veryable.android.data.Account?,
-                position: Int
-            ) {
-                viewModel.setAccountItemOnClick(account,position)
-            }
-        })
-
-        // Set the click listener for card accounts
-
-        // Observe the account data from click
-        viewModel.getLiveItemObserver().observe(this@PayoutsListActivity) {
-            val intent = Intent(this@PayoutsListActivity, PayoutsDetailActivity::class.java)
-                //putExtra(ITEM_DATA, it)
-                startActivity(intent)
-
-        }
-
-         */
-
         viewModel.makeApiCall()
     }
 
