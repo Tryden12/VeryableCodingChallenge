@@ -4,4 +4,5 @@ banking and card accounts.
 
 # Screenshots
 ![Home Screen](/screenshots/home.png?raw=true "Home Screen")
+
 ![Account Screen](/screenshots/account.png?raw=true "Account Screen")
