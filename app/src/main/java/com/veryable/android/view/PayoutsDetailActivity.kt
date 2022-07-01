@@ -45,17 +45,19 @@ class PayoutsDetailActivity : AppCompatActivity(),View.OnClickListener {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         binding.toolbar.setNavigationOnClickListener {
-            val intent = Intent(applicationContext, PayoutsListActivity::class.java)
-            startActivity(intent)
+            onBackPressed()
         }
     }
 
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.done_button -> {
-                val intent = Intent(applicationContext, PayoutsListActivity::class.java)
-                startActivity(intent)
+                onBackPressed()
             }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }
