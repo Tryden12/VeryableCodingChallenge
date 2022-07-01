@@ -12,6 +12,7 @@ Below are some more aspects used:
 - RecyclerView
 - DataBinding
 - Scalable SDP Dimensions
+- Enter/Exit Animations
 
 Things to improve upon:
 - Loading the bank and card lists quicker
