@@ -26,6 +26,11 @@ class PayoutsListViewModel : ViewModel() {
         return liveItemData
     }
 
+    // set the account info on click
+    fun setAccountItemOnClick(account: Account?, position: Int) {
+        liveItemData.value = account
+    }
+
     // Api call for list data
     fun makeApiCall() {
         val call = apiService.getData()
