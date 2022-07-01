@@ -25,8 +25,14 @@ class PayoutsDetailActivity : AppCompatActivity() {
         val intent = intent
         val accountName = intent.getStringExtra("accountName").toString()
         val accountDesc = intent.getStringExtra("accountDesc").toString()
+        val accountType = intent.getStringExtra("accountType").toString()
         binding.accountNameTextview.text = accountName
         binding.bankNameTextview.text = accountDesc
+        if (accountType == Constants.CARD) {
+            binding.bankIcon.setImageResource(R.drawable.card_icon_black)
+        } else {
+            binding.bankIcon.setImageResource(R.drawable.bank_icon_black)
+        }
         Log.d("DEBUG_INTENT", "$accountName, $accountDesc")
     }
 }

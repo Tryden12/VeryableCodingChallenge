@@ -13,10 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.veryable.android.R
 import com.veryable.android.adapter.Adapter
 import com.veryable.android.databinding.ActivityPayoutsListBinding
-import com.veryable.android.listeners.AccountClickListener
 import com.veryable.android.utils.Constants.BANK
 import com.veryable.android.utils.Constants.CARD
-import com.veryable.android.utils.Constants.ITEM_DATA
 import com.veryable.android.viewmodel.PayoutsListViewModel
 
 class PayoutsListActivity : AppCompatActivity() {

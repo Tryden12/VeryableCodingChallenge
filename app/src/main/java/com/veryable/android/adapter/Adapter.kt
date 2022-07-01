@@ -1,25 +1,18 @@
 package com.veryable.android.adapter
 
-import android.app.Instrumentation
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.veryable.android.R
 import com.veryable.android.data.Account
 import com.veryable.android.listeners.AccountClickListener
 import com.veryable.android.utils.Constants.BANK
 import com.veryable.android.utils.Constants.CARD
-import com.veryable.android.utils.Constants.ITEM_DATA
 import com.veryable.android.view.PayoutsDetailActivity
-import kotlinx.android.synthetic.main.list_item.view.*
-import kotlinx.coroutines.withContext
-import org.w3c.dom.Text
 
 class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
@@ -48,23 +41,17 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(accountList?.get(position))
-       /*
-        holder.itemView.setOnClickListener {
-            accountClickListener?.accountItemClick(
-                accountList?.get(holder.adapterPosition),
-                holder.adapterPosition
-            )
-
-        }
-        */
 
         holder.view.findViewById<View>(R.id.item_linear_layout).setOnClickListener {
             val accountName = accountList?.get(position)?.accountName
             val accountDesc = accountList?.get(position)?.description
+            val accountType = accountList?.get(position)?.accountType
+
             // Send data to next activity
             val intent = Intent(holder.view.context, PayoutsDetailActivity::class.java)
             intent.putExtra("accountName", accountName)
             intent.putExtra("accountDesc", accountDesc)
+            intent.putExtra("accountType", accountType)
             holder.view.context.startActivity(intent)
         }
     }
@@ -85,11 +72,9 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
         private val itemDesc: TextView = view.findViewById(R.id.item_desc_textview)
         private val itemDeliveryDesc: TextView = view.findViewById(R.id.item_desc_delivery_textview)
         private val accountImage: ImageView = view.findViewById(R.id.item_icon)
-        private val layout = view.findViewById<View>(R.id.item_linear_layout)
 
         // Bind data to the variables
         fun bind(data : Account?) {
-
             if (data != null) {
                 itemTitle.text = data.accountName
                 itemDesc.text = data.description
@@ -102,10 +87,6 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
                     itemDeliveryDesc.text = "Card: Instant"
                 }
             }
-
-
-            //Log.d("DEBUG_ACCOUNT", "$itemTitle, $itemDesc")
-
         }
 
         init {
