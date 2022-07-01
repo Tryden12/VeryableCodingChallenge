@@ -88,7 +88,7 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
                 }
             }
 
-            Log.d("DEBUG_ACCOUNT", "$itemTitle, $itemDesc")
+            //Log.d("DEBUG_ACCOUNT", "$itemTitle, $itemDesc")
 
         }
 
