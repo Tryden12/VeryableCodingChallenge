@@ -18,4 +18,8 @@
     <string name="account_name">Account Name</string>
     <string name="bank_name">Bank Name</string>
     <string name="done">Done</string>
+
+    <!-- Intent Purpose Keys -->
+    <string name="account_name_key">Name</string>
+    <string name="bank_name_key">Desc</string>
 </resources>
