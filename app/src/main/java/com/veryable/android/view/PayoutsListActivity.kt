@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.veryable.android.R
 import com.veryable.android.adapter.Adapter
 import com.veryable.android.databinding.ActivityPayoutsListBinding
+import com.veryable.android.listeners.AccountClickListener
 import com.veryable.android.utils.Constants.BANK
 import com.veryable.android.utils.Constants.CARD
 import com.veryable.android.utils.Constants.ITEM_DATA
@@ -75,6 +76,26 @@ class PayoutsListActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error retrieving data", Toast.LENGTH_SHORT).show()
             }
         })
+
+        // Set the click listener for bank accounts
+        bankAdapter.setAccountClickListener(object : AccountClickListener {
+            override fun accountItemClick(
+                account: com.veryable.android.data.Account?,
+                position: Int
+            ) {
+                viewModel.setAccountItemOnClick(account,position)
+            }
+        })
+
+        // Set the click listener for card accounts
+
+        // Observe the account data from click
+        viewModel.getLiveItemObserver().observe(this@PayoutsListActivity) {
+            val intent = Intent(this@PayoutsListActivity, PayoutsDetailActivity::class.java)
+                //putExtra(ITEM_DATA, it)
+                startActivity(intent)
+
+        }
 
         viewModel.makeApiCall()
     }

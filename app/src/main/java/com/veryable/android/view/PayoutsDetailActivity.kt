@@ -2,6 +2,7 @@ package com.veryable.android.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.veryable.android.R
@@ -22,8 +23,9 @@ class PayoutsDetailActivity : AppCompatActivity() {
 
     private fun getIntentData() {
         val intent = intent
-        val accountName = intent.getStringExtra(Constants.ITEM_DATA).toString()
+        val accountName = intent.getStringExtra("t").toString()
         val accountNameTextView = findViewById<TextView>(R.id.item_title_textview)
-        accountNameTextView.text = accountName
+        binding.accountNameTextview.text = accountName
+        Log.d("DEBUG_INTENT", "$accountName")
     }
 }
