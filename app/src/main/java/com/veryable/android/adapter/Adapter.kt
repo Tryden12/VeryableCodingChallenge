@@ -17,7 +17,6 @@ import com.veryable.android.view.PayoutsDetailActivity
 class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
     private var accountList: List<Account>? = null
-    private var accountClickListener: AccountClickListener? = null
 
     fun setAccountList(accountList: List<Account>?) {
         this.accountList = accountList
@@ -25,10 +24,6 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
     fun getAccountList(): List<Account>? {
         return accountList
-    }
-
-    fun setAccountClickListener(accountClickListener: AccountClickListener) {
-        this.accountClickListener = accountClickListener
     }
 
     override fun onCreateViewHolder(
@@ -64,8 +59,7 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
     /************ Item View Holder Inner Class ******************/
     inner class ItemViewHolder(val view: View) :
-        RecyclerView.ViewHolder(view),
-        View.OnClickListener {
+        RecyclerView.ViewHolder(view) {
 
         // Create variables for items in list_item layout
         private val itemTitle: TextView = view.findViewById(R.id.item_title_textview)
@@ -88,15 +82,5 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
                 }
             }
         }
-
-        init {
-            view.findViewById<View>(R.id.item_linear_layout).setOnClickListener(this)
-        }
-
-        override fun onClick(view: View?) {
-
-        }
-
-
     }
 }
