@@ -16,16 +16,20 @@ import com.veryable.android.view.PayoutsDetailActivity
 
 class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
+    // List of accounts
     private var accountList: List<Account>? = null
 
+    // Set list of accounts
     fun setAccountList(accountList: List<Account>?) {
         this.accountList = accountList
     }
 
+    // Get list of accounts
     fun getAccountList(): List<Account>? {
         return accountList
     }
 
+    // Setup ViewHolder
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -34,10 +38,12 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
         return ItemViewHolder(view)
     }
 
+    // Bind account data to holder
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(accountList?.get(position))
 
         holder.view.findViewById<View>(R.id.item_linear_layout).setOnClickListener {
+            // Get data for position
             val accountName = accountList?.get(position)?.accountName
             val accountDesc = accountList?.get(position)?.description
             val accountType = accountList?.get(position)?.accountType
@@ -57,7 +63,7 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
     }
 
 
-    /************ Item View Holder Inner Class ******************/
+    /************ Item View Holder Inner Class ************************************************/
     inner class ItemViewHolder(val view: View) :
         RecyclerView.ViewHolder(view) {
 
