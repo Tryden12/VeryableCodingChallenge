@@ -52,6 +52,7 @@ class PayoutsDetailActivity : AppCompatActivity(),View.OnClickListener {
         }
     }
 
+
     // Go back when done button pressed
     override fun onClick(view: View?) {
         when (view?.id) {
