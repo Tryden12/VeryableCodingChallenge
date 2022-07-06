@@ -48,6 +48,7 @@ class PayoutsDetailActivity : AppCompatActivity(),View.OnClickListener {
         supportActionBar?.setDisplayShowHomeEnabled(true)
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         }
     }
 
@@ -56,6 +57,7 @@ class PayoutsDetailActivity : AppCompatActivity(),View.OnClickListener {
         when (view?.id) {
             R.id.done_button -> {
                 onBackPressed()
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
             }
         }
     }
