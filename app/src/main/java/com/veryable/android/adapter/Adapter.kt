@@ -42,9 +42,9 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
 
         holder.view.findViewById<View>(R.id.item_linear_layout).setOnClickListener {
             // Get data for position
-            val accountName = accountList?.get(position)?.accountName
-            val accountDesc = accountList?.get(position)?.description
-            val accountType = accountList?.get(position)?.accountType
+            val accountName = accountList?.get(position)?.account_name
+            val accountDesc = accountList?.get(position)?.desc
+            val accountType = accountList?.get(position)?.account_type
 
             // Send data to next activity
             val intent = Intent(holder.view.context, PayoutsDetailActivity::class.java)
@@ -74,10 +74,10 @@ class Adapter : RecyclerView.Adapter<Adapter.ItemViewHolder>() {
         // Bind data to the variables
         fun bind(data : Account?) {
             if (data != null) {
-                itemTitle.text = data.accountName
-                itemDesc.text = data.description
+                itemTitle.text = data.account_name
+                itemDesc.text = data.desc
 
-                if (data.accountType == BANK) {
+                if (data.account_type == BANK) {
                     accountImage.setImageResource(R.drawable.bank_icon_black)
                     itemDeliveryDesc.text = "Bank Account: ACH - Same Day"
                 } else {
