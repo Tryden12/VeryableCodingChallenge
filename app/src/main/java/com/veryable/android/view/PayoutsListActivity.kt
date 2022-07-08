@@ -63,9 +63,9 @@ class PayoutsListActivity : AppCompatActivity() {
 
             // Set account lists and filter between adapters
             if (it != null) {
-                bankAdapter.setAccountList(it.filter { account -> account.accountType == BANK })
+                bankAdapter.setAccountList(it.filter { account -> account.account_type == BANK })
                 bankAdapter.notifyDataSetChanged()
-                cardAdapter.setAccountList(it.filter { account -> account.accountType == CARD })
+                cardAdapter.setAccountList(it.filter { account -> account.account_type == CARD })
                 cardAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(this, "Error retrieving data", Toast.LENGTH_SHORT).show()

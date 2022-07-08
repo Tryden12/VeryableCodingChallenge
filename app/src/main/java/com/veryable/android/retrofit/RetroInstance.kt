@@ -1,12 +1,9 @@
 package com.veryable.android.retrofit
 
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetroInstance {
@@ -16,9 +13,9 @@ object RetroInstance {
         "https://veryable-public-assets.s3.us-east-2.amazonaws.com/" // veryable.json/
 
     // Create Gson instance
-    private val gson: Gson by lazy {
-        GsonBuilder().setLenient().create()
-    }
+//    private val gson: Gson by lazy {
+//        GsonBuilder().setLenient().create()
+//    }
 
     // Create Moshi instance
     private val moshi = Moshi.Builder()
@@ -35,7 +32,7 @@ object RetroInstance {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(httpClient)
-            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
     }
 
